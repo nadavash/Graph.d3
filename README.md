@@ -42,24 +42,38 @@ The following code is the minimum requirement to get started
 ## Manipulable Attributes
 The following are manipulable attributes of the Graph object
 
-````javascript
-graph.width;
+### graph.width
+Changes the width of the container
 
-graph.height;
+### graph.height;
+Changes the height of the container
 
-graph.color;
+### graph.color;
+Changes the color scale for D3
+* d3.scale.category10()
+* d3.scale.category20()
+* d3.scale.category20b()
+* d3.scale.category20c()
 
-graph.container;
+### graph.container;
+Identifier of the container div where SVG will be appended
 
-graph.charge;
+### graph.charge;
+How close the nodes will be to each other
 
-graph.linkDistance;
+### graph.linkDistance;
+Changes length of links
 
-graph.linkClass;
+### graph.shape;
+Shape of the node
+* rect
+* circle
 
-graph.nodeClass;
+### graph.size;
+Size of the node
 
-graph.shape;
+### graph.linkClass;
+CSS class of the links
 
-graph.size;
-````
+### graph.nodeClass;
+CSS class of the nodes
