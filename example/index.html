@@ -14,21 +14,37 @@
 
 </head>
 <body>
+Charge: <input id="charge" type="range" id="myRange" value="-120" min="-200" max="-10"><br>
+
 <div id="graphs">
 </div>
 <script>
-    var smallMultiples = 10;
+    var data;
+    var smallMultiples = 1;
     for (var i = 0; i < smallMultiples; ++i) {
         $('#graphs').append('<div class="graph"></div>');
     }
 
-    var myGraph = Graph();
-    d3.json('./dolphins.json', function(data) {
+    var myGraph = Graph().size(8);
+    console.log(myGraph.charge());
+    $('#charge').val(myGraph.charge());
+
+    d3.json('./dolphins.json', function(loadedData) {
+        data = loadedData;
         // data = Array.from({length: 10}, function(){return data});
+        updateGraph();
+    });
+
+    $('#charge').change( function() {
+        myGraph.charge($(this).val());
+        updateGraph();
+    });
+
+    function updateGraph() {
         d3.selectAll('.graph')
             .datum(data)
             .call(myGraph);
-    });
+    }
 </script>
 </body>
 </html>
