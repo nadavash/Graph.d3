@@ -17,7 +17,7 @@ function Graph() {
                 .linkDistance(linkDistance)
                 .size([width, height]);
 
-            var svg = d3.select(container).append("svg")
+            var svg = d3.select(this).append("svg")
                 .attr("width", width)
                 .attr("height", height);
 

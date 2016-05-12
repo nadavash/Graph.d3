@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graph.d3</title>
+
+    <link rel="stylesheet" href="/css/index.css"/>
+
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="//d3js.org/d3.v3.js"></script>
+
+    <script src="/js/Graph.d3.js"></script>
+    <script src="/js/main.js"></script>
+
+</head>
+<body>
+<div id="graphs">
+</div>
+<script>
+    var smallMultiples = 10;
+    for (var i = 0; i < smallMultiples; ++i) {
+        $('#graphs').append('<div class="graph"></div>');
+    }
+
+    var myGraph = Graph();
+    d3.json('./dolphins.json', function(data) {
+        // data = Array.from({length: 10}, function(){return data});
+        d3.selectAll('.graph')
+            .datum(data)
+            .call(myGraph);
+    });
+</script>
+</body>
+</html>
